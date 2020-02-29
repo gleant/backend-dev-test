@@ -1,0 +1,78 @@
+[
+  {
+    "id": "start",
+    "question": "What kind of problem are you facing?",
+    "answerOptions": [
+      {
+        "answer": "My internet doesn't work",
+        "nextState": "routerReset"
+      },
+      {
+        "answer": "My phone doesn't work",
+        "nextState": "phoneModel"
+      }
+    ]
+  },
+  {
+    "id": "routerReset",
+    "question": "Have you tried resetting your router?",
+    "answerOptions": [
+      {
+        "answer": "Yes",
+        "nextState": "anotherCable"
+      },
+      {
+        "answer": "No",
+        "nextState": "resetRouterEnd"
+      }
+    ]
+  },
+  {
+    "id": "resetRouterEnd",
+    "question": "Please try resetting the router?"
+  },
+  {
+    "id": "anotherCable",
+    "question": "Have you tried with another cable?",
+    "answerOptions": [
+      {
+        "answer": "Yes",
+        "nextState": "contactSupportEnd"
+      },
+      {
+        "answer": "No",
+        "nextState": "tryAnotherCableEnd"
+      }
+    ]
+  },
+  {
+    "id": "contactSupportEnd",
+    "question": "Contact our customer support for more help."
+  },
+  {
+    "id": "tryAnotherCableEnd",
+    "question": "Try with another cable and contact our customer support if the problem still persists."
+  },
+  {
+    "id": "phoneModel",
+    "question": "What is the make and model of your phone?",
+    "answerOptions": [
+      {
+        "answer": "Samsung Galaxy S10",
+        "nextState": "samsungServiceEnd"
+      },
+      {
+        "answer": "iPhone X",
+        "nextState": "appleServiceEnd"
+      }
+    ]
+  },
+  {
+    "id": "samsungServiceEnd",
+    "question": "Contact Samsung service?"
+  },
+  {
+    "id": "appleServiceEnd",
+    "question": "Contact Apple service?"
+  }
+]
