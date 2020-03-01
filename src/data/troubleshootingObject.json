@@ -1,0 +1,14 @@
+{
+  "id": "start",
+  "question": "What kind of problem are you facing?",
+  "answerOptions": [
+    {
+      "answer": "My internet doesn't work",
+      "nextState": "routerReset"
+    },
+    {
+      "answer": "My phone doesn't work",
+      "nextState": "phoneModel"
+    }
+  ]
+}
