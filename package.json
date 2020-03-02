@@ -1,7 +1,7 @@
 {
   "name": "ultimate-ai-test",
   "version": "1.0.0",
-  "license": "unlicensed",
+  "license": "UNLICENSED",
   "scripts": {
     "test": "jest"
   },
