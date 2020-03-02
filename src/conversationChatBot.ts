@@ -17,6 +17,11 @@ type QuestionsType = {
   [id: string]: QuestionType;
 };
 
+export type ResponseQuestionType = {
+  question: string;
+  answerOptions?: string[];
+};
+
 /**
  * Conversation chat bot which asks questions from user based on user's answer.
  */
@@ -60,10 +65,10 @@ export default class ConversationChatBot {
    *
    * @param answer Answer to previous question or empty string if there is no previous question.
    */
-  reply(answer: string): string {
+  reply(answer: string): ResponseQuestionType {
     const prettyAnswer = answer.trim().toLocaleLowerCase();
     this.currentQuestion = this.findNextQuestion(prettyAnswer);
-    return this.currentQuestion.question;
+    return this.buildResponse(this.currentQuestion);
   }
 
   /**
@@ -209,6 +214,15 @@ export default class ConversationChatBot {
     return (
       (!this.currentQuestion || !this.currentQuestion.answerOptions) && !answer
     );
+  }
+
+  private buildResponse(question: QuestionType): ResponseQuestionType {
+    return {
+      question: question.question,
+      answerOptions: question.answerOptions
+        ? R.map(R.prop("answer"), question.answerOptions)
+        : undefined,
+    };
   }
 
   private static getErrorQuestion(
